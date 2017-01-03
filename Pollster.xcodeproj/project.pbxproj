@@ -7,21 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		476278981E1B869000FED091 /* AllQandAsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476278971E1B869000FED091 /* AllQandAsTableViewController.swift */; };
 		479A279E1E1A870F00AB905B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A279D1E1A870F00AB905B /* AppDelegate.swift */; };
-		479A27A01E1A870F00AB905B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A279F1E1A870F00AB905B /* ViewController.swift */; };
 		479A27A31E1A870F00AB905B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 479A27A11E1A870F00AB905B /* Main.storyboard */; };
 		479A27A51E1A870F00AB905B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479A27A41E1A870F00AB905B /* Assets.xcassets */; };
 		479A27A81E1A870F00AB905B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 479A27A61E1A870F00AB905B /* LaunchScreen.storyboard */; };
+		479A27B31E1A883800AB905B /* CloudKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A27B01E1A883800AB905B /* CloudKitExtensions.swift */; };
+		479A27B41E1A883800AB905B /* QandAAccessoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A27B11E1A883800AB905B /* QandAAccessoryTableViewController.swift */; };
+		479A27B51E1A883800AB905B /* QandATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A27B21E1A883800AB905B /* QandATableViewController.swift */; };
+		479A27B71E1A888000AB905B /* TextTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A27B61E1A888000AB905B /* TextTableViewController.swift */; };
+		479A27B91E1A8A3C00AB905B /* CloudQandATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479A27B81E1A8A3C00AB905B /* CloudQandATableViewController.swift */; };
+		479A27BD1E1A97C300AB905B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479A27BC1E1A97C300AB905B /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		476278971E1B869000FED091 /* AllQandAsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllQandAsTableViewController.swift; sourceTree = "<group>"; };
 		479A279A1E1A870F00AB905B /* Pollster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		479A279D1E1A870F00AB905B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		479A279F1E1A870F00AB905B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		479A27A21E1A870F00AB905B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		479A27A41E1A870F00AB905B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479A27A71E1A870F00AB905B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		479A27A91E1A870F00AB905B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		479A27B01E1A883800AB905B /* CloudKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitExtensions.swift; sourceTree = "<group>"; };
+		479A27B11E1A883800AB905B /* QandAAccessoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QandAAccessoryTableViewController.swift; sourceTree = "<group>"; };
+		479A27B21E1A883800AB905B /* QandATableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QandATableViewController.swift; sourceTree = "<group>"; };
+		479A27B61E1A888000AB905B /* TextTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewController.swift; sourceTree = "<group>"; };
+		479A27B81E1A8A3C00AB905B /* CloudQandATableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudQandATableViewController.swift; sourceTree = "<group>"; };
+		479A27BA1E1A97C000AB905B /* Pollster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pollster.entitlements; sourceTree = "<group>"; };
+		479A27BC1E1A97C300AB905B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479A27BD1E1A97C300AB905B /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +54,7 @@
 			children = (
 				479A279C1E1A870F00AB905B /* Pollster */,
 				479A279B1E1A870F00AB905B /* Products */,
+				479A27BB1E1A97C300AB905B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +69,36 @@
 		479A279C1E1A870F00AB905B /* Pollster */ = {
 			isa = PBXGroup;
 			children = (
-				479A279D1E1A870F00AB905B /* AppDelegate.swift */,
-				479A279F1E1A870F00AB905B /* ViewController.swift */,
+				479A27BA1E1A97C000AB905B /* Pollster.entitlements */,
+				479A27AF1E1A878F00AB905B /* Supporting */,
 				479A27A11E1A870F00AB905B /* Main.storyboard */,
+				476278971E1B869000FED091 /* AllQandAsTableViewController.swift */,
+				479A27B81E1A8A3C00AB905B /* CloudQandATableViewController.swift */,
+				479A279D1E1A870F00AB905B /* AppDelegate.swift */,
+			);
+			path = Pollster;
+			sourceTree = "<group>";
+		};
+		479A27AF1E1A878F00AB905B /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				479A27B61E1A888000AB905B /* TextTableViewController.swift */,
+				479A27B01E1A883800AB905B /* CloudKitExtensions.swift */,
+				479A27B11E1A883800AB905B /* QandAAccessoryTableViewController.swift */,
+				479A27B21E1A883800AB905B /* QandATableViewController.swift */,
 				479A27A41E1A870F00AB905B /* Assets.xcassets */,
 				479A27A61E1A870F00AB905B /* LaunchScreen.storyboard */,
 				479A27A91E1A870F00AB905B /* Info.plist */,
 			);
-			path = Pollster;
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		479A27BB1E1A97C300AB905B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				479A27BC1E1A97C300AB905B /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +135,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5D8357SCSF;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,8 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				479A27A01E1A870F00AB905B /* ViewController.swift in Sources */,
+				479A27B71E1A888000AB905B /* TextTableViewController.swift in Sources */,
+				479A27B91E1A8A3C00AB905B /* CloudQandATableViewController.swift in Sources */,
+				479A27B31E1A883800AB905B /* CloudKitExtensions.swift in Sources */,
+				479A27B51E1A883800AB905B /* QandATableViewController.swift in Sources */,
 				479A279E1E1A870F00AB905B /* AppDelegate.swift in Sources */,
+				476278981E1B869000FED091 /* AllQandAsTableViewController.swift in Sources */,
+				479A27B41E1A883800AB905B /* QandAAccessoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pollster/Pollster.entitlements;
 				DEVELOPMENT_TEAM = 5D8357SCSF;
 				INFOPLIST_FILE = Pollster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -274,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pollster/Pollster.entitlements;
 				DEVELOPMENT_TEAM = 5D8357SCSF;
 				INFOPLIST_FILE = Pollster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -302,6 +354,7 @@
 				479A27AE1E1A870F00AB905B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
