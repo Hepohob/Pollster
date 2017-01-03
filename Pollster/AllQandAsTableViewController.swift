@@ -52,6 +52,8 @@ class AllQandAsTableViewController: UITableViewController {
     //MAR: Subscriptions
     
     private var subscriptionID = "All QandA Creations and Deletions"
+    private var cloudKitObserver: NSObjectProtocol?
+    
     
     private func iCloudSubscribeToQandA() {
         let predicate = NSPredicate(format: "TRUEPREDICATE")
@@ -65,6 +67,44 @@ class AllQandAsTableViewController: UITableViewController {
                 // ignore, already have subscription...
             } else if error != nil {
                 // report, because something happens
+            }
+        }
+        //observing notification from iCloud
+        cloudKitObserver = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: CloudKitNotifications.NotificationReceived),
+            object: nil,
+            queue: OperationQueue.main,
+            using: { notification in
+                if let ckqn = (notification as NSNotification).userInfo?[CloudKitNotifications.NotificationKey] as? CKQueryNotification {
+                    self.iCloudHandleSubscriptionNotification(ckqn)
+                }
+        }
+        )
+    }
+    
+    private func iCloudHandleSubscriptionNotification(_ ckqn: CKQueryNotification)
+    {
+        if ckqn.subscriptionID == self.subscriptionID {
+            if let recordID = ckqn.recordID {
+                switch ckqn.queryNotificationReason {
+                case .recordCreated:
+                    database.fetch(withRecordID: recordID) { (record, error) in
+                        if record != nil {
+                            DispatchQueue.main.async {
+                                self.allQandAs = (self.allQandAs + [record!]).sorted {
+                                    return $0.question < $1.question
+                                }
+                            }
+                        }
+                    }
+                    
+                case .recordDeleted:
+                    DispatchQueue.main.async {
+                        self.allQandAs = self.allQandAs.filter { $0.recordID != recordID }
+                    }
+                default:
+                    break
+                }
             }
         }
     }
