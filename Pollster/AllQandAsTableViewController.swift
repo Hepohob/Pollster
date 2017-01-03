@@ -57,10 +57,10 @@ class AllQandAsTableViewController: UITableViewController {
     
     private func iCloudSubscribeToQandA() {
         let predicate = NSPredicate(format: "TRUEPREDICATE")
-        let subsciptions = CKSubscription(recordType: Cloud.Entity.QandA,
-                                          predicate: predicate,
-                                          subscriptionID: self.subscriptionID,
-                                          options: [.firesOnRecordCreation, .firesOnRecordDeletion])
+        let subsciptions = CKQuerySubscription(recordType: Cloud.Entity.QandA,
+                                               predicate: predicate,
+                                               subscriptionID: self.subscriptionID,
+                                               options: [.firesOnRecordCreation, .firesOnRecordDeletion])
         // some subscription notification info....
         database.save(subsciptions) { (savedSubscription, error) in
             if (error as? NSError)?.code == CKError.serverRejectedRequest.rawValue {
