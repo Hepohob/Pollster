@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let settings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
         return true
+    }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        let ckqn = CKQueryNotification(fromRemoteNotificationDictionary: userInfo as! [String:NSObject])
+        let notification = Notification(
+            name: Notification.Name(rawValue: CloudKitNotifications.NotificationReceived),
+            object: self,
+            userInfo: [CloudKitNotifications.NotificationKey:ckqn]
+        )
+        NotificationCenter.default.post(notification)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

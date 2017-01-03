@@ -24,6 +24,12 @@ class AllQandAsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchAllQandAs()
+        iCloudSubscribeToQandA()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        iCloudUnsubscribeToQandA()
     }
     
     // MARK: Private Implementation
@@ -40,6 +46,32 @@ class AllQandAsTableViewController: UITableViewController {
                     self.allQandAs = records!
                 }
             }
+        }
+    }
+    
+    //MAR: Subscriptions
+    
+    private var subscriptionID = "All QandA Creations and Deletions"
+    
+    private func iCloudSubscribeToQandA() {
+        let predicate = NSPredicate(format: "TRUEPREDICATE")
+        let subsciptions = CKSubscription(recordType: Cloud.Entity.QandA,
+                                          predicate: predicate,
+                                          subscriptionID: self.subscriptionID,
+                                          options: [.firesOnRecordCreation, .firesOnRecordDeletion])
+        // some subscription notification info....
+        database.save(subsciptions) { (savedSubscription, error) in
+            if (error as? NSError)?.code == CKError.serverRejectedRequest.rawValue {
+                // ignore, already have subscription...
+            } else if error != nil {
+                // report, because something happens
+            }
+        }
+    }
+    
+    private func iCloudUnsubscribeToQandA() {
+        database.delete(withSubscriptionID: self.subscriptionID) { (subscription, error) in
+            // handle errors and other...
         }
     }
     
@@ -61,7 +93,7 @@ class AllQandAsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let record = allQandAs[indexPath .row]
+            let record = allQandAs[indexPath.row]
             database.delete(withRecordID: record.recordID) { (deletedRecord, error) in
                 // handle errors
             }
